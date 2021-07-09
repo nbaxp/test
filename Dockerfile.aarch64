@@ -1,0 +1,11 @@
+FROM multiarch/qemu-user-static:x86_64-aarch64 as qemu
+
+FROM arm64v8/ubuntu:18.04
+
+LABEL org.opencontainers.image.authors="76527413@qq.com"
+
+COPY --from=qemu /usr/bin/qemu-aarch64-static /usr/bin
+
+#RUN apt update && rm -rf /var/lib/apt/lists/*
+
+CMD uname -a
