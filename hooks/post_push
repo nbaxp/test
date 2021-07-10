@@ -4,6 +4,6 @@ tag=$(dpkg --print-architecture).$GIT_BRANCH.$(git rev-parse --short HEAD).$(dat
 docker tag $IMAGE_NAME $DOCKER_REPO:$tag
 docker push $DOCKER_REPO:$tag
 
-version=$(dpkg --print-architecture)-1.0
+version=$DOCKER_TAG-1.0
 docker tag $IMAGE_NAME $DOCKER_REPO:$version
 docker push $DOCKER_REPO:$version
