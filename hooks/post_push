@@ -6,5 +6,4 @@ docker push $DOCKER_REPO:$tag
 
 version=$(uname -m).1.0
 docker tag $IMAGE_NAME $DOCKER_REPO:$version
-
 docker push $DOCKER_REPO:$version
