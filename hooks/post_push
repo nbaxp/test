@@ -4,6 +4,6 @@ tag=$GIT_BRANCH.$(git rev-parse --short HEAD).$(date -u +"%Y-%m-%dT%H-%M-%SZ")
 docker tag $IMAGE_NAME $DOCKER_REPO:$tag
 docker push $DOCKER_REPO:$tag
 
-version=$(uname -m).1.0
+version=1.0
 docker tag $IMAGE_NAME $DOCKER_REPO:$version
 docker push $DOCKER_REPO:$version
