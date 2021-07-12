@@ -1,9 +1,6 @@
 #!/bin/bash
 
-tag=$(dpkg --print-architecture).$GIT_BRANCH.$(git rev-parse --short HEAD).$(date -u +"%Y-%m-%dT%H-%M-%SZ")
-docker tag $IMAGE_NAME $DOCKER_REPO:$tag
-docker push $DOCKER_REPO:$tag
-
-version=$DOCKER_TAG-1.0
-docker tag $IMAGE_NAME $DOCKER_REPO:$version
-docker push $DOCKER_REPO:$version
+version=1.0
+for tag in {$DOCKER_TAG-version,$DOCKER_TAG-version-$(git rev-parse --short HEAD)}; do
+    echo $tag
+done
