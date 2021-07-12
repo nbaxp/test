@@ -1,6 +1,6 @@
 #!/bin/bash
 
 version=1.0
-for tag in {$DOCKER_TAG-version,$DOCKER_TAG-version-$(git rev-parse --short HEAD)}; do
+for tag in {$DOCKER_TAG-version,$DOCKER_TAG-$(git rev-parse --short HEAD),$DOCKER_TAG-$(date -u +"%Y-%m-%dT%H-%M-%SZ")}; do
     echo $tag
 done
