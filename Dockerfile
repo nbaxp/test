@@ -1,6 +1,6 @@
 ARG BUILD_IMAGE=ubuntu:18.04
 ARG IMAGE=ubuntu:18.04
-ARG BTANCH=master
+ARG BRANCH=master
 ARG AUTHORS=76527413@qq.com
 
 FROM $BUILD_IMAGE as build

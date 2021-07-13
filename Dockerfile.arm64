@@ -1,7 +1,7 @@
 ARG AUTHORS=76527413@qq.com
 ARG BUILD_IMAGE=arm64v8/ubuntu:18.04
 ARG IMAGE=arm64v8/ubuntu:18.04
-ARG BTANCH=master
+ARG BRANCH=master
 
 FROM multiarch/qemu-user-static:x86_64-aarch64 as qemu
 
@@ -18,8 +18,8 @@ COPY --from=qemu /usr/bin/qemu-aarch64-static /usr/bin
 
 LABEL org.opencontainers.image.authors=$AUTHORS
 
-RUN rm -rf /usr/bin/qemu-aarch64-static
-
 RUN dpkg --print-architecture && uname -a
+
+RUN rm -rf /usr/bin/qemu-aarch64-static
 
 CMD dpkg --print-architecture
