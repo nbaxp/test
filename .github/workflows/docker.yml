@@ -28,4 +28,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: ${{ secrets.DOCKER_REPOSITORY }}:amd64-${{ emv.GIT_BRANCH }}-${{ env.GIT_SHA }}
+          tags: ${{ secrets.DOCKER_REPOSITORY }}:amd64-${{ env.GIT_BRANCH }}-${{ env.GIT_SHA }}
