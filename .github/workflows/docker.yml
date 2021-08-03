@@ -10,7 +10,7 @@ jobs:
       contents: read
     steps:
       - name: Check out the repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
       - name: test
         run: dpkg --print-architecture && env
       - name: Log in to Docker Hub
@@ -26,7 +26,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags:
-            amd64
+            ${{ secrets.DOCKER_REPOSITORY }}:amd64
             # ${{ secrets.DOCKER_REPOSITORY }}: amd64-${{ GITHUB_REF:11 }}-${{ GITHUB_SHA::7 }}
       - name: Push to Docker Hub arm64
         uses: docker/build-push-action@v2
@@ -36,5 +36,5 @@ jobs:
           platforms: linux/arm64
           push: true
           tags:
-            arm64
+            ${{ secrets.DOCKER_REPOSITORY }}:arm64
             # ${{ secrets.DOCKER_REPOSITORY }}: arm64-${{ GITHUB_REF:11 }}-${{ GITHUB_SHA::7 }}
