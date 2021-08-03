@@ -1,4 +1,9 @@
 # docker test
+
+1. <https://docs.github.com/cn/actions/reference/environment-variables>
+2. <https://docs.github.com/cn/actions/reference/environment-variables#default-environment-variables>
+3. <https://docs.github.com/cn/actions/reference/context-and-expression-syntax-for-github-actions#contexts>
+
 ## debian repo 
 ```
 RUN cat /etc/apt/sources.list && \
