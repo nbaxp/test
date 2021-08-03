@@ -10,7 +10,7 @@ jobs:
       contents: read
     steps:
       - name: Check out the repo
-      - uses: actions/checkout@master
+        uses: actions/checkout@master
       - name: test
         run: env
       - name: Build image
