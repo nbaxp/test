@@ -14,7 +14,7 @@ jobs:
         id: var
         shell: bash
         run: |
-          echo "##[set-env name=GIT_SHA;]$(${GITHUB_SHA::7})"
+          echo "GIT_SHA=$(${GITHUB_SHA::7})" >> $GITHUB_ENV
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
