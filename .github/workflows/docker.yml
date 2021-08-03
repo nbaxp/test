@@ -13,6 +13,12 @@ jobs:
         uses: actions/checkout@master
       - name: test
         run: dpkg --print-architecture && env
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ secrets.DOCKER_REPOSITORY }}
+          tags: arm64-${{ GITHUB_REF:11 }}-${{ GITHUB_SHA::7 }}
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
@@ -25,8 +31,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: |
-            ${{ secrets.DOCKER_REPOSITORY }}:amd64-${ GITHUB_REF:11 }-${ GITHUB_SHA::7 }
+          tags: ${{ steps.meta.outputs.tags }}
       # - name: Push to Docker Hub arm64
       #   uses: docker/build-push-action@v2
       #   with:
