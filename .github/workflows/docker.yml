@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Define variables
         id: var
-        run: export GITHUB_SHA_SHORT=${GITHUB_SHA::7}
+        run: export GIT_SHA=${GITHUB_SHA::7}
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
@@ -25,4 +25,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: ${{ secrets.DOCKER_REPOSITORY }}:amd64-${{ env.GITHUB_SHA_SHORT }}
+          tags: ${{ secrets.DOCKER_REPOSITORY }}:amd64-${{ env.GIT_SHA }}
