@@ -35,4 +35,4 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: |
-            ${{ secrets.DOCKER_REPOSITORY }}:"arm64-${{GITHUB_REF:11}-${{GITHUB_SHA::7}}"
+            ${{ secrets.DOCKER_REPOSITORY }}:"arm64-${{GITHUB_REF:11}}-${{GITHUB_SHA::7}}"
