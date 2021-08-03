@@ -38,4 +38,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ secrets.DOCKER_REPOSITORY }}:latest
+          tags: |
+            ${{ secrets.DOCKER_REPOSITORY }}:latest
+            ${{ secrets.DOCKER_REPOSITORY }}:${{ env.GIT_BRANCH }}
+            ${{ secrets.DOCKER_REPOSITORY }}:${{ env.GIT_BRANCH }}-${{ env.GIT_SHA }}
