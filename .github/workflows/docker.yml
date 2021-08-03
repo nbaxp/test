@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Define variables
         id: var
+        shell: bash
         run: |
           echo "##[set-env name=GIT_SHA;]$(${GITHUB_SHA::7})"
       - name: Log in to Docker Hub
