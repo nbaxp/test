@@ -1,10 +1,6 @@
 version: "3.8"
 services:
-    test-amd64:
-        image: 76527413/test:amd64
-        build: .
+    test:
+        image: 76527413/test:latest
     test-arm64:
-        image: 76527413/test:arm64
-        build:
-            context: .
-            dockerfile: Dockerfile.arm64
+        image: arm64/76527413/test:latest
