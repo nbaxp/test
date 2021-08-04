@@ -1,7 +1,7 @@
 FROM ubuntu:18.04 as build
 
 RUN cat /etc/apt/sources.list && \
-    if  [[ $(uname -r) =~ 'azure' ]] ;then echo azure ;else \
+    if  [[ $(uname -a) =~ 'azure' ]] ;then echo azure ;else \
     sed -i s/archive.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list && \
     sed -i s/security.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list && \
     sed -i s/ports.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list \
