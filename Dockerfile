@@ -1,6 +1,6 @@
 FROM ubuntu:18.04 as build
 
-RUN env && cat /etc/apt/sources.list && \
+RUN cat /etc/apt/sources.list && \
     sed -i s/archive.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list && \
     sed -i s/security.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list && \
     sed -i s/ports.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list && \
@@ -11,6 +11,6 @@ FROM ubuntu:18.04
 
 LABEL org.opencontainers.image.authors=76527413@qq.com
 
-RUN dpkg --print-architecture && uname -a
+RUN dpkg --print-architecture && uname -a && env
 
 CMD dpkg --print-architecture
