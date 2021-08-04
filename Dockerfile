@@ -1,19 +1,15 @@
-ARG BUILD_IMAGE=ubuntu:18.04
-ARG IMAGE=ubuntu:18.04
-ARG BRANCH=master
-ARG AUTHORS=76527413@qq.com
-
-FROM $BUILD_IMAGE as build
+FROM ubuntu:18.04 as build
 
 RUN cat /etc/apt/sources.list && \
-    # sed -i s/archive.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list && \
-    # sed -i s/security.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list && \
+    sed -i s/archive.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list && \
+    sed -i s/security.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list && \
+    sed -i s/ports.ubuntu.com/mirrors.ustc.edu.cn/g /etc/apt/sources.list && \
     apt update -y && \
     rm -rf /var/lib/apt/lists/*
 
-FROM $IMAGE
+FROM ubuntu:18.04
 
-LABEL org.opencontainers.image.authors=$AUTHORS
+LABEL org.opencontainers.image.authors=76527413@qq.com
 
 RUN dpkg --print-architecture && uname -a
 
